@@ -9,7 +9,10 @@ public class SneakPlayerMessage {
     public static void sendSneakPlayerMessage(Player player, Player target) {
         Component Message = Component.text().build();
         //裝飾用
-        Message = Message.append(Component.text("--------------------------------"));
+        Message = Message.append(
+                Component.text("--------------------------------")
+                        .append(Component.newline())
+        );
         //標題
         Message = Message.append(
                 Component.text("玩家交互系統")
@@ -22,6 +25,7 @@ public class SneakPlayerMessage {
                         .color(NamedTextColor.AQUA)
                         .append(Component.text(target.getName()))
                         .color(NamedTextColor.YELLOW)
+                        .append(Component.newline())
         );
         //操作面板
         Message = Message.append(
