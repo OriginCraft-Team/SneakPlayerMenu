@@ -1,0 +1,4 @@
+name: SneakPlayerMenu
+version: '${project.version}'
+main: zhenyuan.sneakplayermenu.SneakPlayerMenu
+api-version: '1.20'
