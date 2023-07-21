@@ -7,6 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import zhenyuan.sneakplayermenu.Listener.OnPlayerLeft;
 import zhenyuan.sneakplayermenu.Listener.SneakPlayerListener;
 
+@SuppressWarnings("unused")
 public final class SneakPlayerMenu extends JavaPlugin {
 
     @Override
