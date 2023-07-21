@@ -26,13 +26,17 @@ public class SneakPlayerMessage {
                         .append(Component.text(target.getName()))
                         .color(NamedTextColor.YELLOW)
                         .append(Component.newline())
+                        .append(Component.newline())
         );
         //操作面板
         Message = Message.append(
                 Component.text("[私訊]")
-                        .clickEvent(ClickEvent.suggestCommand("/m " + target))
                         .color(NamedTextColor.GREEN)
+                        .clickEvent(ClickEvent.suggestCommand("/m " + target.getName() + " "))
+                        .append(Component.newline())
         );
+        //裝飾用
+        Message = Message.append(Component.text("--------------------------------"));
 
         player.sendMessage(Message);
 
