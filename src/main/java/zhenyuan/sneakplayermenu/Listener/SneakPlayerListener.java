@@ -16,20 +16,20 @@ public class SneakPlayerListener implements Listener {
     @EventHandler
     public void onPlayerInteract(PlayerInteractEntityEvent event) {
         Player player = event.getPlayer();
-        // 檢查玩家是否在潛行狀態
-        if (player.isSneaking()) {
-            //確認對象是否玩家
-            if (!(event.getRightClicked() instanceof Player clickPlayer)) return;
-            //目前系統時間放入變數
-            long currTime = System.currentTimeMillis();
+        // 玩家如果沒有在潛行狀態就不執行以下代碼
+        if (!player.isSneaking() && event.getRightClicked() instanceof Player) {
+            return;
+        }
 
-            //如果沒有玩家資料就放置資料
-            if (!clickPlayers.containsKey(player) || (currTime - clickPlayers.getOrDefault(player, 0L)) > 1000) {
-                clickPlayers.put(player, currTime);
-                SneakPlayerMessage.sendSneakPlayerMessage(player, clickPlayer);
-                // 將訊息發送到控制台
-                Bukkit.getConsoleSender().sendMessage(Component.text("玩家 " + player.getName() + " 正在與玩家 " + clickPlayer.getName() + " 進行潛行互動。"));
-            }
+        Player clickPlayer = (Player) event.getRightClicked();
+        //目前系統時間放入變數
+        long currTime = System.currentTimeMillis();
+        // 檢測是否有時間間隔,沒有則放置,有則判斷是否超過時間
+        if (!clickPlayers.containsKey(player) || (currTime - clickPlayers.getOrDefault(player, 0L)) > 1000) {
+            clickPlayers.put(player, currTime);
+            SneakPlayerMessage.sendSneakPlayerMessage(player, clickPlayer);
+            // 將訊息發送到控制台
+            Bukkit.getConsoleSender().sendMessage(Component.text("玩家 " + player.getName() + " 正在與玩家 " + clickPlayer.getName() + " 進行潛行互動。"));
         }
     }
 }

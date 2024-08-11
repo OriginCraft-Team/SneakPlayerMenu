@@ -15,7 +15,6 @@ public class SneakPlayerMessage {
                 .append(Component.text("玩家交互系統", NamedTextColor.AQUA, TextDecoration.BOLD))
                 .append(Component.newline())
                 .append(Component.text("目標玩家: ")
-                        .color(NamedTextColor.AQUA)
                         .append(Component.text(target.getName()))
                         .color(NamedTextColor.YELLOW)
                         .append(Component.newline())
