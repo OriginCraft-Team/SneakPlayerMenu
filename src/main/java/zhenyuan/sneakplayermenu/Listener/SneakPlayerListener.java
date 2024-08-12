@@ -17,11 +17,10 @@ public class SneakPlayerListener implements Listener {
     public void onPlayerInteract(PlayerInteractEntityEvent event) {
         Player player = event.getPlayer();
         // 玩家如果沒有在潛行狀態就不執行以下代碼
-        if (!player.isSneaking() && event.getRightClicked() instanceof Player) {
+        if (!player.isSneaking() || !(event.getRightClicked() instanceof Player clickPlayer)) {
             return;
         }
 
-        Player clickPlayer = (Player) event.getRightClicked();
         //目前系統時間放入變數
         long currTime = System.currentTimeMillis();
         // 檢測是否有時間間隔,沒有則放置,有則判斷是否超過時間
