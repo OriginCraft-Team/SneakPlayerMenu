@@ -15,7 +15,8 @@ public class SneakSwapHandItemsListener implements Listener {
         if (!player.isSneaking()) {
             return;
         }
-
+        // 取消將物品放置到副手的事件
+        event.setCancelled(true);
         // 執行指令
         player.performCommand("cp Main");
     }
