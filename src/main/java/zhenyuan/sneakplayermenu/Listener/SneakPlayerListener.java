@@ -28,7 +28,7 @@ public class SneakPlayerListener implements Listener {
         if (!clickPlayers.containsKey(player) || (currTime - clickPlayers.getOrDefault(player, 0L)) > 1000) {
             clickPlayers.put(player, currTime);
             SneakPlayerMessage.sendSneakPlayerMessage(player, clickPlayer);
-            event.getPlayer().playSound(player, Sound.ENTITY_PLAYER_LEVELUP, 1f, 2f);
+            event.getPlayer().playSound(player, Sound.BLOCK_NOTE_BLOCK_CHIME, 1f, 2f);
             // 將訊息發送到控制台
             Bukkit.getConsoleSender().sendMessage(Component.text("玩家 " + player.getName() + " 正在與玩家 " + clickPlayer.getName() + " 進行潛行互動。"));
         }
