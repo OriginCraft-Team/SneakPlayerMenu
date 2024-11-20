@@ -2,6 +2,7 @@ package zhenyuan.sneakplayermenu.Listener;
 
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -27,6 +28,7 @@ public class SneakPlayerListener implements Listener {
         if (!clickPlayers.containsKey(player) || (currTime - clickPlayers.getOrDefault(player, 0L)) > 1000) {
             clickPlayers.put(player, currTime);
             SneakPlayerMessage.sendSneakPlayerMessage(player, clickPlayer);
+            event.getPlayer().playSound(player, Sound.ENTITY_PLAYER_LEVELUP, 1f, 2f);
             // 將訊息發送到控制台
             Bukkit.getConsoleSender().sendMessage(Component.text("玩家 " + player.getName() + " 正在與玩家 " + clickPlayer.getName() + " 進行潛行互動。"));
         }
