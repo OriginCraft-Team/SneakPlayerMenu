@@ -21,7 +21,7 @@ public class SneakPlayerMessage {
                         .append(Component.newline()))
                 .append(Component.text("[私訊] ")
                         .color(NamedTextColor.GREEN)
-                        .clickEvent(ClickEvent.suggestCommand("/m " + target.getName() + " ")))
+                        .clickEvent(ClickEvent.suggestCommand("/pm " + target.getName() + " ")))
                 .append(Component.text("[轉帳]")
                         .color(NamedTextColor.LIGHT_PURPLE)
                         .clickEvent(ClickEvent.suggestCommand("/pay " + target.getName() + " "))
